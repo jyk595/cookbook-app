@@ -14,4 +14,9 @@ class ApplicationController < Sinatra::Base
 	  shopping_item_create.to_json
   end
 
+  get "/grocery_list" do
+    # Item.all.sort_by(&:product_name).to_json
+    ItemGroceryList.all.map{|a|a.item.product_name}.uniq.to_json
+  end
+
 end

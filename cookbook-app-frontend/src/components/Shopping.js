@@ -1,5 +1,6 @@
 import ShoppingItem from './ShoppingItem';
 import React, { useState, useEffect } from 'react';
+import GroceryList from './GroceryList';
 
 function Shopping({ currentUser, setCurrentUser }) {
   const[shoppingItemData, setShoppingItemData] = useState([]);
@@ -74,7 +75,7 @@ function Shopping({ currentUser, setCurrentUser }) {
         <h3 className="shopping-category-header">Misc</h3>
         {renderMisc}
       </div>
-      
+      <GroceryList />
     </div>
   )
 }
