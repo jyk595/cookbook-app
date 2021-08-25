@@ -1,38 +1,92 @@
-.App {
-  text-align: center;
+/* Body Styles */
+body {
+  font-family: "Lato", sans-serif;
+  margin: 40px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  text-align: left;
+  font-family: "Fredoka One";
+  font-size: 24px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.section-container {
+  margin: 40px 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* Nav Styles */
+nav {
+  border-bottom: 1px solid #ccc;
+  
 }
 
-.App-link {
-  color: #61dafb;
+nav img {
+  height: 40px;
+  width: auto;
+  padding-bottom: 24px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.nav-links-container {
+  display: inline-block;
+  float: right;
+  margin-top: 12px;
+}
+
+.nav-links-container > * {
+  font-family: "Fredoka One";
+  font-size: 16px;
+  margin-left: 24px;
+  color: black;
+  text-decoration: none;
+}
+
+/* Shopping Section Style */
+.main-shopping-container {
+  width: 60vw;
+  padding-top: 40px;
+}
+
+.shopping-category-header {
+  font-family: "Fredoka One";
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+.shopping-item-button {
+  background: white;
+  width: 30%;
+  margin-right: 3%;
+  margin-bottom: 24px;
+  padding: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: left;
+  filter: drop-shadow(0 0 4px rgb(223, 223, 223));
+  height: 100px;
+}
+
+.shopping-item-button:hover {
+  background: #f5f5f5;
+  transition: .3s;
+}
+
+.shopping-item-button-name {
+  font-size: 16px;
+  font-weight: 700;
+  position: relative;
+  top: -15px;
+}
+
+.shopping-item-button-stock {
+  position: relative;
+  top: 15px;
+}
+
+.stock-green {
+  color: green
+}
+
+.stock-red {
+  color: red
 }

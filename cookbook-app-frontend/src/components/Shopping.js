@@ -52,25 +52,29 @@ function Shopping({ currentUser, setCurrentUser }) {
   });
 
   return (
-    <div>
+    <div className="section-container">
       <h1>Shopping</h1>
-      <p>{shoppingItemData.length} Results</p>
-      {/* <div className="sort-container">
-        <span>Sort By:</span>
-        <button>Default</button>
-        <button>A-Z</button>
-      </div> */}
-      <h3>Fruits</h3>
-      {renderFruits}
+      <p>Add items to your grocery list for your next visit.</p>
+      <div className="main-shopping-container">
+        <p>{shoppingItemData.length} Results</p>
+        {/* <div className="sort-container">
+          <span>Sort By:</span>
+          <button>Default</button>
+          <button>A-Z</button>
+        </div> */}
+        <h3 className="shopping-category-header">Fruits</h3>
+        {renderFruits}
 
-      <h3>Vegetables</h3>
-      {renderVegetables}
+        <h3 className="shopping-category-header">Vegetables</h3>
+        {renderVegetables}
+        
+        <h3 className="shopping-category-header">Spices</h3>
+        {renderSpices}
+        
+        <h3 className="shopping-category-header">Misc</h3>
+        {renderMisc}
+      </div>
       
-      <h3>Spices</h3>
-      {renderSpices}
-      
-      <h3>Misc</h3>
-      {renderMisc}
     </div>
   )
 }

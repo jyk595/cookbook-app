@@ -21,7 +21,7 @@ function ShoppingItem({ shoppingItem, currentUser }) {
   return (
     <button className="shopping-item-button" value={product_name} onClick={shoppingItemClick}>
       <p className="shopping-item-button-name">{product_name}</p>
-      <p className="shopping-item-button-stock">{quantity > 0 ? "In Stock" : "Out of Stock"}</p>
+      <p className={quantity > 0 ? "shopping-item-button-stock stock-green" : "shopping-item-button-stock stock-red"}>{quantity > 0 ? "In Stock" : "Out of Stock"}</p>
     </button>
   )
 }
