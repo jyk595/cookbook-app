@@ -7,7 +7,7 @@ User.create(
 )
 
 puts "Seeding items..."
-20.times do
+10.times do
   Item.create(
     product_name: Faker::Food.fruits,
     category: "fruit", 
@@ -16,7 +16,7 @@ puts "Seeding items..."
   )
 end
 
-20.times do
+5.times do
   Item.create(
     product_name: Faker::Food.ingredient,
     category: "misc", 
@@ -25,7 +25,7 @@ end
   )
 end
 
-10.times do
+5.times do
   Item.create(
     product_name: Faker::Food.spice,
     category: "spice", 
@@ -34,7 +34,7 @@ end
   )
 end
 
-20.times do
+10.times do
   Item.create(
     product_name: Faker::Food.vegetables,
     category: "vegetable", 
@@ -44,7 +44,7 @@ end
 end
 
 puts "Seeding item grocery lists..."
-30.times do
+100.times do
   ItemGroceryList.create(user_id: User.ids.sample, item_id: Item.ids.sample)
 end
 

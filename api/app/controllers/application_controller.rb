@@ -2,7 +2,6 @@ class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
   
   get "/shopping_items" do
-    # Item.all.sort_by(&:product_name).to_json
     Item.all.to_json
   end
 
@@ -15,8 +14,13 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/grocery_list" do
-    # Item.all.sort_by(&:product_name).to_json
-    ItemGroceryList.all.map{|a|a.item.product_name}.uniq.to_json
+    ItemGroceryList.all.map{|a|a.item}.uniq.to_json
+  end
+
+  delete '/item_grocery_list/:id' do
+    list_item = ItemGroceryList.where(item_id: params[:id])
+    list_item.destroy_all
+    {message: "items deleted"}.to_json
   end
 
 end

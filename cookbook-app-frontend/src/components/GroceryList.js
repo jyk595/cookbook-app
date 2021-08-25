@@ -1,24 +1,34 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import GroceryListItem from './GroceryListItem';
 
-function GroceryList() {
-  const [groceryListData, setGroceryListData] = useState([]);
+function GroceryList({ groceryListData, setGroceryListData }) {
+  const [totalTracker, setTotalTracker] = useState(0);
 
-  useEffect(() => {
-    // fetch(`${process.env.REACT_APP_API_URL}/shopping_items`)
-    fetch(`http://localhost:9292/grocery_list`)
-    .then(res=>res.json())
-    .then(setGroceryListData)
-  },[]);
+  function listQuantity (item) {
+    return groceryListData.filter(groceryItem => groceryItem.product_name === item).length
+  }
 
   const renderChecklist = groceryListData.map(checklistItem => {
-    return <GroceryListItem checklistItem={checklistItem} key={checklistItem.id} />
+    // setTotalTracker(()=>totalTracker + checklistItem.price);
+    
+    return <GroceryListItem 
+      checklistItem={checklistItem} 
+      listQuantity={listQuantity}
+      groceryListData={groceryListData}
+      setGroceryListData={setGroceryListData}
+      totalTracker={totalTracker}
+      setTotalTracker={setTotalTracker}
+      key={checklistItem.id} 
+    />    
   })
 
   return (
-    <div>
-      <h1>This is the grocery list page</h1>
-      {renderChecklist}  
+    <div className="shopping-grocery-list-container">
+      <h1>Grocery List</h1>
+      {renderChecklist}
+      <div className="total-p">
+        <p>Total: ${totalTracker}</p>
+      </div>
     </div>
   )
 }
