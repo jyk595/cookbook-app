@@ -1,24 +1,32 @@
-import React, { useState } from 'react';
 import GroceryListItem from './GroceryListItem';
 
-function GroceryList({ groceryListData, setGroceryListData }) {
-  let totalTracker = 0;
+function GroceryList({ groceryListData, setGroceryListData, inventoryListData, setInventoryListData, currentUser }) {
 
+  // Track the number of items in the grocery list to display
   function listQuantity (item) {
     return groceryListData.filter(groceryItem => groceryItem.product_name === item).length
   }
 
-  const totalMath = groceryListData.map(item=> {
+  // Track the total amount at the bottom of the grocery list
+  let totalTracker = 0;
+
+  groceryListData.map(item=> {
     totalTracker += item.price
-  })
+  });
 
+  // Takes all the grocery items and filters by what's in the item-grocery-lists
+  const filteredTotalList = groceryListData.filter(({ id }) => inventoryListData.map(a => a.item_id).includes(id));
 
-  const renderChecklist = groceryListData.map(checklistItem => {
+  // Render the items in the checklist
+  const renderChecklist = filteredTotalList.map(checklistItem => {
     return <GroceryListItem 
       checklistItem={checklistItem} 
       listQuantity={listQuantity}
       groceryListData={groceryListData}
       setGroceryListData={setGroceryListData}
+      inventoryListData={inventoryListData}
+      setInventoryListData={setInventoryListData}
+      currentUser={currentUser}
       key={checklistItem.id} 
     />    
   })
@@ -28,7 +36,7 @@ function GroceryList({ groceryListData, setGroceryListData }) {
       <h1>Grocery List</h1>
       {renderChecklist}
       <div className="total-p">
-        <p>Total: ${Math.round(totalTracker*100)/100}</p>
+        <p>Total: ${(Math.round(totalTracker*100)/100).toFixed(2)}</p>
       </div>
     </div>
   )

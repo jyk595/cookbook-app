@@ -1,17 +1,20 @@
 function ShoppingItem({ shoppingItem, groceryListData, setGroceryListData, currentUser }) {
-  const { id, product_name, quantity } = shoppingItem;
+  const { id, product_name, price, quantity } = shoppingItem;
 
+  // onClick when user clicks the item from the shopping list, it adds to the grocery list
   function shoppingItemClick(clickData) {    
-    const groceryListNames = groceryListData.map(item => item.product_name)
-    if (groceryListNames.indexOf(clickData.target.value) > -1) {
-      console.log("truth")
-    } else {
-      const newArr = [
-        shoppingItem,
-        ...groceryListData
-      ]
-      setGroceryListData(newArr)
+    const newGroceryList = {
+      user_id: currentUser,
+      item_id: id,
+      purchased: false 
     }
+
+    const addedGroceryList = [
+      newGroceryList,
+      ...groceryListData
+    ]
+
+    setGroceryListData(addedGroceryList)
 
     fetch(`${process.env.REACT_APP_API_URL}/shopping_item_click`, {
       method: 'POST',
@@ -27,8 +30,9 @@ function ShoppingItem({ shoppingItem, groceryListData, setGroceryListData, curre
   }
 
   return (
-    <button className="shopping-item-button" value={product_name} onClick={shoppingItemClick}>
-      <p className={quantity > 0 ? "shopping-item-button-name" : "shopping-item-button-name stock-out"} name="product_id">{product_name}</p>
+    <button className={quantity > 0 ? "shopping-item-button" : "shopping-item-button stock-out"} value={product_name} onClick={shoppingItemClick}>
+      <p className="shopping-item-button-name" name="product_id">{product_name}</p>
+      <p className="shopping-item-button-price">${(Math.round(price*100)/100).toFixed(2)}</p>
       <p className={quantity > 0 ? "shopping-item-button-stock stock-green" : "shopping-item-button-stock stock-red"}>{quantity > 0 ? "In Stock" : "Out of Stock"}</p>
     </button>
   )

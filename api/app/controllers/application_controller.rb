@@ -13,8 +13,12 @@ class ApplicationController < Sinatra::Base
 	  shopping_item_create.to_json
   end
 
-  get "/grocery_list" do
-    ItemGroceryList.all.map{|a|a.item}.uniq.to_json
+  get "/all_items" do
+    Item.all.uniq.to_json
+  end
+
+  get "/inventory" do
+    ItemGroceryList.all.sort_by(&:item_id).to_json
   end
 
   delete '/item_grocery_list/:id' do
@@ -23,11 +27,21 @@ class ApplicationController < Sinatra::Base
     {message: "items deleted"}.to_json
   end
 
+  delete '/item_grocery_delete/:id' do
+    list_item = ItemGroceryList.find_by(item_id: params[:id])
+    list_item.destroy
+    {message: "item deleted"}.to_json
+  end
+
   patch "/item_list_patch/:id" do
     shopping_item = ItemGroceryList.where(item_id: params[:id])
-    shopping_item.update(
-      purchased: !self.purchased
-    )
+
+    if shopping_item[0].purchased == true
+      shopping_item.update(purchased: false)
+    else
+      shopping_item.update(purchased: true)
+    end
+    
 	  shopping_item.to_json
   end
 

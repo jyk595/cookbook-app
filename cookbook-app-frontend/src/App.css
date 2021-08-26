@@ -45,6 +45,10 @@ nav img {
   text-decoration: none;
 }
 
+.active-header {
+  color: #FA7B4E;
+}
+
 /* Footer Style */
 footer {
   padding: 40px 24px;
@@ -181,6 +185,10 @@ footer a {
   filter: drop-shadow(0 0 4px rgb(223, 223, 223));
 }
 
+.shopping-item-button-price {
+  margin-bottom: 8px;
+}
+
 .shopping-category-container {
   margin-bottom: 40px;
   display: flex;
@@ -209,7 +217,9 @@ footer a {
 }
 
 .stock-out {
-  color: #aaa
+  color: #aaa;
+  cursor: not-allowed;
+  pointer-events: none;
 }
 
 .stock-green {
@@ -280,31 +290,45 @@ footer a {
   cursor: pointer;
 }
 
-.checklist-quantity-form {
+.inventory-change-container {
   display: inline-block;
-  width: 40px;
-  height: 28px;
-  margin-right: 30px;
+  margin-right: 16px;
 }
 
-.checklist-quantity-form input {
-  width: 40px;
-  height: 28px;
+.inventory-change-container > * {
+  display: inline-block;
+  margin-right: 8px;
+}
+.inventory-change-container p {
+  width: 28px;
   text-align: center;
-  font-family: 'Lato';
-  font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+}
+
+.inventory-button {
+  border: none;
+  font-size: 18px;
+  color: #aaa;
+  border-radius: 50px;
+  height:18px;
+  width: 18px;
+  background: transparent;
+  cursor: pointer;
 }
 
 .checklist-item-price {
   display: inline-block;
+  width: 75px
+}
+
+.checklist-checked {
+  text-decoration: line-through;
+  background: #ccc;
 }
 
 .total-p {
   text-align: right;
   margin: 40px 0;
-  padding-right: 24px;
+  padding-right: 56px;
   font-weight: 800;
   font-size: 18px;
 }

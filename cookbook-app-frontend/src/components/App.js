@@ -10,11 +10,18 @@ import GroceryList from './GroceryList';
 function App() {
   const [currentUser, setCurrentUser] = useState(4);
   const [groceryListData, setGroceryListData] = useState([]);
+  const [inventoryListData, setInventoryListData] = useState([]);
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_URL}/grocery_list`)
+    fetch(`${process.env.REACT_APP_API_URL}/all_items`)
     .then(res=>res.json())
     .then(setGroceryListData)
+  },[]);
+
+  useEffect(() => {
+    fetch(`${process.env.REACT_APP_API_URL}/inventory`)
+    .then(res=>res.json())
+    .then(setInventoryListData)
   },[]);
   
   return (
@@ -36,6 +43,9 @@ function App() {
           <GroceryList 
             groceryListData={groceryListData}
             setGroceryListData={setGroceryListData}
+            inventoryListData={inventoryListData}
+            setInventoryListData={setInventoryListData}
+            currentUser={currentUser}
           />
         </Route>
       </Switch>
