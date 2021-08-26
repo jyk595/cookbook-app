@@ -18,9 +18,27 @@ function GroceryListItem({ checklistItem, listQuantity, groceryListData, setGroc
     }
   }
 
+  function checkGroceryItem() {
+    const res = fetch(`${process.env.REACT_APP_API_URL}/item_list_patch/${id}`, {
+      method: 'PATCH',
+      headers: {
+        "Content-type": "application/json"
+      },
+      body: JSON.stringify(
+        // if (purchased == true) {purchased = false}
+        // if (purchased == false) {purchased = true}
+        {purchased: true}
+      )
+
+    })
+    .then(res=>res.json())
+    .then(a=>console.log("checked!!!"))
+    
+  }
+
   return (
     <div className="checklist-container">
-      <input type="checkbox" id={product_name} value={product_name} name="checklistItem" className="checklist-item-checkbox" />
+      <input type="checkbox" id={product_name} value={product_name} name="checklistItem" className="checklist-item-checkbox" onClick={checkGroceryItem} />
       <label for={product_name} className="shopping-item-button-name">{product_name}</label>
       <div className="checklist-item-info">
         <button className="checklist-delete-button" onClick={() => clickDeleteGroceryItem(id)}>

@@ -25,7 +25,7 @@ function Shopping({ currentUser, setCurrentUser, groceryListData, setGroceryList
     } else {
       return false
     }
-  })
+  });
 
   const renderFruits = searchFilter.map(shoppingItem => {
     if (shoppingItem.category === 'fruit') {
@@ -77,11 +77,11 @@ function Shopping({ currentUser, setCurrentUser, groceryListData, setGroceryList
 
   return (
     <div className="shopping-page-container">
+      <form className="search-form-container">
+        <span>Search: </span><input type="type" name="search-input" placeholder="ie: Watermelons, cherry tomatoes, ..." onChange = {handleChange} />
+      </form>
       <div className="main-shopping-container">
-        <form className="search-form-container">
-          <span>Search: </span><input type="type" name="search-input" placeholder="ie: Watermelons, cherry tomatoes, ..." onChange = {handleChange} />
-        </form>
-        <p>{shoppingItemData.length} Results</p>
+        <p className="results-number">{searchFilter.length} Results</p>
         {/* <div className="sort-container">
           <span>Sort By:</span>
           <button>Default</button>
@@ -94,23 +94,23 @@ function Shopping({ currentUser, setCurrentUser, groceryListData, setGroceryList
           </div>
         </Link>
         
+        <h3 className="shopping-category-header">Fruits</h3>
         <div className="shopping-category-container">
-          <h3 className="shopping-category-header">Fruits</h3>
           {renderFruits}
         </div>
-        
+
+        <h3 className="shopping-category-header">Vegetables</h3>
         <div className="shopping-category-container">
-          <h3 className="shopping-category-header">Vegetables</h3>
           {renderVegetables}
         </div>
         
+        <h3 className="shopping-category-header">Spices</h3>
         <div className="shopping-category-container">
-          <h3 className="shopping-category-header">Spices</h3>
           {renderSpices}
         </div>
         
+        <h3 className="shopping-category-header">Misc</h3>
         <div className="shopping-category-container">
-          <h3 className="shopping-category-header">Misc</h3>
           {renderMisc}
         </div>
       </div>

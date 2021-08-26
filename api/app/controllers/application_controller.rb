@@ -23,4 +23,12 @@ class ApplicationController < Sinatra::Base
     {message: "items deleted"}.to_json
   end
 
+  patch "/item_list_patch/:id" do
+    shopping_item = ItemGroceryList.where(item_id: params[:id])
+    shopping_item.update(
+      purchased: !self.purchased
+    )
+	  shopping_item.to_json
+  end
+
 end

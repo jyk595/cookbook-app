@@ -49,17 +49,110 @@ nav img {
 footer {
   padding: 40px 24px;
   background: white;
-  
+}
+
+.footer-logo {
+  margin-bottom: 24px;
+  width: 120px;
+  height: auto;
+}
+
+.footer-promo-img {
+  width: 320px;
+  height: auto;
+  display: inline-block;
+  margin-right: 40px
+}
+
+footer div {
+  display: inline-block;
+  padding-top: 16px;
+  vertical-align: top;
+  margin-right: 40px;
+}
+
+footer div:last-child {
+  padding-top: 76px;
+}
+
+footer h4 {
+  font-family: "Fredoka One";
+  font-size: 16px;
+  margin-bottom: 24px;
+}
+
+footer a {
+  color: black;
+  text-decoration: none;
+}
+
+.hours {
+  margin-top: 24px;
+}
+
+/* Homepage Style */
+.homepage-container img {
+  height: 500px;
+  display: inline-block;
+  object-fit: cover
+}
+
+.homepage-container img:first-child {
+  width: 40vw;
+  overflow: hidden;
+}
+
+.homepage-container img:last-child {
+  width: 60vw;
+  overflow: hidden;
+}
+
+.homepage-logo {
+  position: absolute;
+  top: 270px;
+  text-align: center;
+  left: 35%;
+  width: 30%;
+}
+
+.homepage-logo img {
+  width: 100%
+}
+
+.homepage-link-container {
+  padding: 40px 24px;
+  text-align: center;
+  font-family: "Fredoka One";
+  font-size: 18px;
+  border-bottom: 2px solid white;
+  background: #FA7B4E;
+}
+
+.homepage-link-container a {
+  text-decoration: none;
+  color: white;
 }
 
 /* Shopping Section Style */
 .shopping-page-container {
-  padding: 40px 24px;
   background: #f5f5f5;
   overflow: hidden;
 }
 
+.search-form-container {
+  padding: 32px 24px;
+  background: white
+}
+
+.search-form-container input{
+  width: 40%;
+  margin-left: 8px;
+  border: none;
+  outline: none;
+}
+
 .main-shopping-container {
+  padding: 32px 24px;
   width: 100%;
   display: inline-block;
   float: left;
@@ -79,8 +172,6 @@ footer {
 
 .shopping-item-button {
   background: white;
-  width: 32%;
-  margin-right: 1%;
   margin-bottom: 8px;
   padding: 16px;
   border: none;
@@ -92,6 +183,18 @@ footer {
 
 .shopping-category-container {
   margin-bottom: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 4;
+  gap: 1%;
+}
+
+.shopping-category-container > * {
+  flex: 0 1 31%;
+}
+
+.results-number {
+  margin: 16px 0 40px;
 }
 
 .shopping-item-button:hover {
@@ -128,7 +231,7 @@ footer {
   font-weight: 800;
   text-decoration: none;
   position: absolute;
-  top: 130px;
+  top: 205px;
   right: 24px;
   z-index: 50;
 }
@@ -137,18 +240,6 @@ footer {
   height: 16px;
   width: auto;
   margin-right: 8px;
-}
-
-.search-form-container {
-  margin-bottom: 40px;
-}
-
-.search-form-container input{
-  width: 40%;
-  margin-left: 8px;
-  padding: 12px 16px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
 }
 
 /* Grocery List Style */
@@ -208,4 +299,12 @@ footer {
 
 .checklist-item-price {
   display: inline-block;
+}
+
+.total-p {
+  text-align: right;
+  margin: 40px 0;
+  padding-right: 24px;
+  font-weight: 800;
+  font-size: 18px;
 }
