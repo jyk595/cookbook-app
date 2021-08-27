@@ -13,24 +13,24 @@ function Shopping({ currentUser, groceryListData, setGroceryListData, inventoryL
     .then(setShoppingItemData)
   },[]);
 
-  // Sorting by default and A-Z
-  function clickSortDefault(clickData) {
-    const defaultSort = shoppingItemData.sort(function(a, b) {
-      if(a.id < b.id) return -1;
-      if(a.id > b.id) return 1;
-      return 0;
-    });
-    setShoppingItemData(defaultSort);
-  }
+  // // Sorting by default and A-Z
+  // function clickSortDefault(clickData) {
+  //   const defaultSort = shoppingItemData.sort(function(a, b) {
+  //     if(a.id < b.id) return -1;
+  //     if(a.id > b.id) return 1;
+  //     return 0;
+  //   });
+  //   setShoppingItemData(defaultSort);
+  // }
 
-  function clickSortAZ(clickData) {
-    const AZSort = shoppingItemData.sort(function(a, b) {
-      if(a.product_name.toLowerCase() < b.product_name.toLowerCase()) return -1;
-      if(a.product_name.toLowerCase() > b.product_name.toLowerCase()) return 1;
-      return 0;
-    });
-    setShoppingItemData(AZSort);
-  }
+  // function clickSortAZ(clickData) {
+  //   const AZSort = shoppingItemData.sort(function(a, b) {
+  //     if(a.product_name.toLowerCase() < b.product_name.toLowerCase()) return -1;
+  //     if(a.product_name.toLowerCase() > b.product_name.toLowerCase()) return 1;
+  //     return 0;
+  //   });
+  //   setShoppingItemData(AZSort);
+  // }
 
   // onChange to handle the search field and filtering
   function handleChange(e) {
@@ -121,11 +121,11 @@ function Shopping({ currentUser, groceryListData, setGroceryListData, inventoryL
       </form>
       <div className="main-shopping-container">
         <p className="results-number">{searchFilter.length} Results</p>
-        <div className="sort-container">
+        {/* <div className="sort-container">
           <span>Sort By:</span>
           <button onClick={clickSortDefault}>Default</button>
           <button onClick={clickSortAZ}>A-Z</button>
-        </div>
+        </div> */}
 
         <Link to="/grocery-list">
           <div className="grocery-list-link">

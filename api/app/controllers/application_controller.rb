@@ -26,7 +26,7 @@ class ApplicationController < Sinatra::Base
     list_item.destroy_all
     {message: "items deleted"}.to_json
   end
-
+  
   delete '/item_grocery_delete/:id' do
     list_item = ItemGroceryList.find_by(item_id: params[:id])
     list_item.destroy
