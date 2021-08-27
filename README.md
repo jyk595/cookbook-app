@@ -61,4 +61,5 @@ The user can see their grocery list as they visit the shop. Perfect for a grab-a
 ## Created By
 ### John Kim
 Github: <a href="https://github.com/jyk595/">jyk595</a>
+
 Email: <a href="mailto: jyk595@gmail.com">jyk595@gmail.com</a>
