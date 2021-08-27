@@ -1,4 +1,4 @@
-function ShoppingItem({ shoppingItem, groceryListData, setGroceryListData, currentUser }) {
+function ShoppingItem({ shoppingItem, groceryListData, setGroceryListData, currentUser, inventoryListData, setInventoryListData }) {
   const { id, product_name, price, quantity } = shoppingItem;
 
   // onClick when user clicks the item from the shopping list, it adds to the grocery list
@@ -15,6 +15,19 @@ function ShoppingItem({ shoppingItem, groceryListData, setGroceryListData, curre
     ]
 
     setGroceryListData(addedGroceryList)
+
+    const newInventoryList = {
+      user_id: currentUser,
+      item_id: id,
+      purchased: false 
+    }
+
+    const addedInventoryList = [
+      newInventoryList,
+      ...inventoryListData
+    ]
+
+    setInventoryListData(addedInventoryList)
 
     fetch(`${process.env.REACT_APP_API_URL}/shopping_item_click`, {
       method: 'POST',

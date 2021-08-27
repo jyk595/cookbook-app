@@ -20,7 +20,7 @@ function GroceryListItem({ checklistItem, listQuantity, groceryListData, setGroc
   // See if checkbox should be checked or not
   let checkboxCheck = inventoryListData.find(item => item.item_id === id).purchased
 
-  // WORK IN PROGRESS - onClick action when the checkbox is checked  
+  // onClick action when the checkbox is checked  
   function checkGroceryItem() {
     const res = fetch(`${process.env.REACT_APP_API_URL}/item_list_patch/${id}`, {
       method: 'PATCH',
@@ -30,25 +30,23 @@ function GroceryListItem({ checklistItem, listQuantity, groceryListData, setGroc
     })
     .then(res=>res.json())
     .then(a=>{
-      console.log(a)
-
-      // const combinedArr = [...inventoryListData, a[0]]
-
-      // setInventoryListData(combinedArr)
+      setInventoryListData(a)
     })
   }
 
   // onClick for deleting an item on the grocery list
   const inventoryLessClick = async (id) => {
     const removeId = inventoryListData.find(listItem => {
-      if (listItem.item_id == id) {
+      if (listItem.item_id === id) {
         return listItem.item_id
+      } else {
+        return null
       }
     });
 
 
     const filteredArr = inventoryListData.filter(listItem => {
-      if (listItem.id == removeId.id) {
+      if (listItem.id === removeId.id) {
         return false
       } else {
         return true

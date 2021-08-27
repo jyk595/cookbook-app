@@ -42,7 +42,6 @@ class ApplicationController < Sinatra::Base
       shopping_item.update(purchased: true)
     end
     
-	  shopping_item.to_json
+    ItemGroceryList.all.to_json
   end
-
 end

@@ -1,3 +1,4 @@
+import React from 'react';
 import GroceryListItem from './GroceryListItem';
 
 function GroceryList({ groceryListData, setGroceryListData, inventoryListData, setInventoryListData, currentUser }) {
@@ -10,8 +11,8 @@ function GroceryList({ groceryListData, setGroceryListData, inventoryListData, s
   // Track the total amount at the bottom of the grocery list
   let totalTracker = 0;
 
-  groceryListData.map(item=> {
-    totalTracker += item.price
+  groceryListData.map(item => {
+    return totalTracker += item.price
   });
 
   // Takes all the grocery items and filters by what's in the item-grocery-lists

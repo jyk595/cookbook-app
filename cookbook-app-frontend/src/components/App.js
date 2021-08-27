@@ -12,12 +12,14 @@ function App() {
   const [groceryListData, setGroceryListData] = useState([]);
   const [inventoryListData, setInventoryListData] = useState([]);
 
+  // Initial fetch of all grocery list items
   useEffect(() => {
     fetch(`${process.env.REACT_APP_API_URL}/all_items`)
     .then(res=>res.json())
     .then(setGroceryListData)
   },[]);
 
+  // Initial fetch of all inventory list item data
   useEffect(() => {
     fetch(`${process.env.REACT_APP_API_URL}/inventory`)
     .then(res=>res.json())
@@ -37,6 +39,8 @@ function App() {
             setCurrentUser={setCurrentUser}
             groceryListData={groceryListData}
             setGroceryListData={setGroceryListData}
+            inventoryListData={inventoryListData}
+            setInventoryListData={setInventoryListData}
           />
         </Route>
         <Route path="/grocery-list">
