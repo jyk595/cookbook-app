@@ -15,15 +15,16 @@ Launch backend
 $ bundle install
 $ rake db:migrate
 $ rake db:seed
+$ bundle exec rake server
 ```
 Launch frontend
 ```
-$ yarn install
-$ yarn start
+$ npm install
+$ npm start
 ```
 Navigate
 ```
-localhost:9292/
+localhost:3000/
 ```
 ## Features
 
